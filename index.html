@@ -113,10 +113,15 @@ h1 .outline { -webkit-text-stroke: 2px var(--white); color: transparent; }
 .big12-section { padding: 80px 40px; background: #070707; border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); overflow: hidden; }
 .big12-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
 .big12-subtext { font-size: 15px; color: rgba(255,255,255,0.4); margin-top: 12px; font-weight: 300; }
-.big12-scroll { display: flex; gap: 10px; margin-top: 40px; flex-wrap: wrap; justify-content: center; }
-.big12-pill { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 8px 16px; font-size: 13px; color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 8px; transition: all 0.2s; }
-.big12-pill:hover { background: rgba(102,198,206,0.08); border-color: rgba(102,198,206,0.25); color: var(--teal); }
-.big12-num { font-family: var(--font-display); font-size: 10px; font-weight: 700; color: var(--teal); opacity: 0.7; }
+.big12-scroll { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 40px; }
+.big12-pill { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 20px 16px; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: default; transition: all 0.25s; opacity: 0; transform: translateY(16px); animation: pillarEntrance 0.5s ease forwards; text-align: center; }
+@keyframes pillarEntrance { to { opacity: 1; transform: translateY(0); } }
+.big12-pill:hover { background: rgba(102,198,206,0.08); border-color: rgba(102,198,206,0.3); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(102,198,206,0.1); }
+.big12-icon { font-size: 24px; line-height: 1; display: block; transition: transform 0.2s; }
+.big12-pill:hover .big12-icon { transform: scale(1.2); }
+.big12-num { font-family: var(--font-display); font-size: 9px; font-weight: 700; color: var(--teal); opacity: 0.6; letter-spacing: 0.08em; }
+.big12-label { font-size: 11px; color: rgba(255,255,255,0.6); font-weight: 500; line-height: 1.3; transition: color 0.2s; }
+.big12-pill:hover .big12-label { color: rgba(255,255,255,0.9); }
 .pricing-section { padding: 100px 40px; background: var(--black); }
 .pricing-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; text-align: left; }
@@ -171,6 +176,37 @@ footer { padding: 40px; background: #060606; border-top: 1px solid rgba(255,255,
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.confidant-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.carousel-tabs { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+.carousel-tab { padding:7px 16px; border-radius:20px; font-size:13px; font-weight:500; cursor:pointer; border:1px solid rgba(255,255,255,0.12); color:rgba(255,255,255,0.5); background:transparent; transition:all 0.2s; font-family:var(--font-body); }
+.carousel-tab.active { background:var(--teal); color:var(--black); border-color:var(--teal); }
+.carousel-tab:hover:not(.active) { border-color:rgba(255,255,255,0.3); color:rgba(255,255,255,0.8); }
+.carousel-screen { display:none !important; }
+.carousel-screen.active { display:flex !important; }
+.mockup-content-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.mockup-section-header { padding:14px 18px; border-bottom:1px solid rgba(255,255,255,0.06); }
+.mockup-section-title { font-size:13px; font-weight:500; color:var(--white); }
+.mockup-section-sub { font-size:11px; color:rgba(255,255,255,0.35); margin-top:2px; }
+.mockup-content-body { flex:1; padding:16px 18px; overflow:hidden; }
+.mockup-radar-wrap { display:flex; align-items:center; gap:20px; }
+.mockup-radar { width:140px; height:140px; flex-shrink:0; }
+.mockup-pillar-list { flex:1; display:flex; flex-direction:column; gap:6px; }
+.mockup-pillar-row { display:flex; align-items:center; gap:8px; }
+.mockup-pillar-label { font-size:11px; color:rgba(255,255,255,0.6); width:110px; flex-shrink:0; }
+.mockup-pillar-bar-bg { flex:1; height:6px; background:rgba(255,255,255,0.08); border-radius:3px; overflow:hidden; }
+.mockup-pillar-bar { height:100%; border-radius:3px; }
+.mockup-pillar-score { font-size:10px; color:rgba(255,255,255,0.4); width:20px; text-align:right; flex-shrink:0; }
+.mockup-strategy-cards { display:flex; flex-direction:column; gap:8px; }
+.mockup-strategy-card { background:rgba(255,255,255,0.04); border-radius:8px; padding:10px 12px; border-left:2px solid var(--teal); }
+.mockup-strategy-label { font-size:9px; text-transform:uppercase; letter-spacing:0.08em; color:rgba(102,198,206,0.7); margin-bottom:3px; font-weight:600; }
+.mockup-strategy-text { font-size:11px; color:rgba(255,255,255,0.75); line-height:1.4; }
+.mockup-offer-card { background:rgba(255,255,255,0.04); border-radius:8px; padding:10px 12px; border-left:2px solid var(--pink); margin-bottom:8px; }
+.mockup-offer-label { font-size:9px; text-transform:uppercase; letter-spacing:0.08em; color:rgba(254,90,110,0.7); margin-bottom:3px; font-weight:600; }
+.mockup-offer-text { font-size:11px; color:rgba(255,255,255,0.75); line-height:1.4; }
+.mockup-oneliner { background:rgba(102,198,206,0.08); border:1px solid rgba(102,198,206,0.2); border-radius:8px; padding:10px 12px; }
+.mockup-oneliner-label { font-size:9px; text-transform:uppercase; letter-spacing:0.08em; color:var(--teal); margin-bottom:4px; font-weight:600; }
+.mockup-oneliner-text { font-size:12px; color:var(--white); line-height:1.5; font-weight:500; }
 @media (max-width: 900px) {
   nav { padding: 16px 20px; } .nav-links { display: none; } .hero { padding: 100px 24px 60px; }
   .how-grid { grid-template-columns: 1fr; } .features-grid { grid-template-columns: 1fr 1fr; }
@@ -178,8 +214,14 @@ footer { padding: 40px; background: #060606; border-top: 1px solid rgba(255,255,
   .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
   .testimonials { grid-template-columns: 1fr; } .mockup-sidebar { display: none; }
   .preview-section, .how-section, .features-section, .pricing-section, .proof-section, .cta-section { padding: 60px 24px; }
+  .confidant-grid { grid-template-columns:1fr; gap:40px; }
 }
-@media (max-width: 600px) { .features-grid { grid-template-columns: 1fr; } .big12-scroll { gap: 8px; } }
+@media (max-width: 600px) {
+  .features-grid { grid-template-columns: 1fr; }
+  .big12-scroll { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .manifesto-step { flex-direction: column !important; gap: 16px !important; }
+  .manifesto-step > div:last-child { display: none; }
+}
 </style>
 </head>
 <body>
@@ -192,6 +234,7 @@ footer { padding: 40px; background: #060606; border-top: 1px solid rgba(255,255,
     <li><a href="#how">How it works</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#talk-to-buddy" style="color:#66C6CE;font-weight:500;">Talk to Buddy</a></li>
     <li><a href="https://www.optimiseyourmarketing.co.uk/meet-with-stuart" target="_blank" class="nav-cta">Book a demo →</a></li>
   </ul>
 </nav>
@@ -201,10 +244,10 @@ footer { padding: 40px; background: #060606; border-top: 1px solid rgba(255,255,
   <div class="hero-grid"></div>
   <div class="hero-eyebrow"><div class="hero-eyebrow-dot"></div>Powered by the BIG12 Framework</div>
   <h1>Your marketing advisor.<br><span class="teal">Always on.</span><br><span class="outline">Always honest.</span></h1>
-  <p class="hero-sub">Buddy is an AI marketing advisor built for small businesses. He learns your business, builds your strategy, and tells you exactly what to do next — without the agency retainer.</p>
+  <p class="hero-sub">Most business owners copy tactics off others, guess at strategy, and never have an honest conversation about what they really want to build. Buddy changes that. He is your thinking partner, your marketing brain, and your 24/7 advisor — working to optimise your business around your vision, not someone else's playbook.</p>
   <div class="hero-actions">
     <a href="https://www.optimiseyourmarketing.co.uk/meet-with-stuart" target="_blank" class="btn-primary">Book a free demo →</a>
-    <a href="https://www.optimiseyourmarketing.co.uk/online-marketing-audit" target="_blank" class="btn-secondary">Take the free BIG12 Audit</a>
+    <a href="#talk-to-buddy" class="btn-secondary">Talk to Buddy now</a>
   </div>
   <div class="hero-proof">
     <div class="hero-proof-text">Trusted by businesses across the UK</div>
@@ -218,12 +261,92 @@ footer { padding: 40px; background: #060606; border-top: 1px solid rgba(255,255,
   </div>
 </section>
 
+<!-- BANNER -->
+<div style="background:var(--teal);padding:0;overflow:hidden;position:relative;">
+  <div style="display:flex;align-items:center;white-space:nowrap;animation:ticker 18s linear infinite;">
+    <div style="display:flex;align-items:center;gap:0;flex-shrink:0;">
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:#0E0E0E;padding:16px 32px;letter-spacing:-0.01em;">Build the business you actually want.</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:rgba(0,0,0,0.35);padding:16px 0;">✦</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:#0E0E0E;padding:16px 32px;letter-spacing:-0.01em;">Not someone else's.</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:rgba(0,0,0,0.35);padding:16px 0;">✦</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:#0E0E0E;padding:16px 32px;letter-spacing:-0.01em;">Stop copying. Start building.</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:rgba(0,0,0,0.35);padding:16px 0;">✦</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:#0E0E0E;padding:16px 32px;letter-spacing:-0.01em;">Your vision. Your strategy. Your growth.</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:rgba(0,0,0,0.35);padding:16px 0;">✦</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:#0E0E0E;padding:16px 32px;letter-spacing:-0.01em;">Optimised 24/7.</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:rgba(0,0,0,0.35);padding:16px 0;">✦</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:0;flex-shrink:0;" aria-hidden="true">
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:#0E0E0E;padding:16px 32px;letter-spacing:-0.01em;">Build the business you actually want.</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:rgba(0,0,0,0.35);padding:16px 0;">✦</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:#0E0E0E;padding:16px 32px;letter-spacing:-0.01em;">Not someone else's.</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:rgba(0,0,0,0.35);padding:16px 0;">✦</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:#0E0E0E;padding:16px 32px;letter-spacing:-0.01em;">Stop copying. Start building.</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:rgba(0,0,0,0.35);padding:16px 0;">✦</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:#0E0E0E;padding:16px 32px;letter-spacing:-0.01em;">Your vision. Your strategy. Your growth.</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:rgba(0,0,0,0.35);padding:16px 0;">✦</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:#0E0E0E;padding:16px 32px;letter-spacing:-0.01em;">Optimised 24/7.</span>
+      <span style="font-family:'Syne',sans-serif;font-size:clamp(15px,2vw,20px);font-weight:800;color:rgba(0,0,0,0.35);padding:16px 0;">✦</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOUR STEPS MANIFESTO -->
+<section style="padding:100px 40px;background:#0A0A0A;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%, rgba(102,198,206,0.04) 0%, transparent 70%);"></div>
+  <div style="max-width:900px;margin:0 auto;position:relative;z-index:1;">
+    <div style="display:flex;flex-direction:column;gap:0;">
+      <div class="manifesto-step reveal" style="padding:40px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:32px;">
+        <div style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:rgba(102,198,206,0.5);text-transform:uppercase;letter-spacing:0.15em;width:80px;flex-shrink:0;">Step 01</div>
+        <div style="flex:1;">
+          <div style="font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,52px);font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1.0;">Unload your brain.</div>
+          <div style="font-size:15px;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:300;line-height:1.6;max-width:560px;">Tell Buddy everything. Your ideas, your worries, your goals, your frustrations. He listens, remembers, and turns it into something you can actually work with.</div>
+        </div>
+        <div style="font-size:48px;flex-shrink:0;opacity:0.6;">🧠</div>
+      </div>
+      <div class="manifesto-step reveal" style="padding:40px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:32px;">
+        <div style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:rgba(102,198,206,0.5);text-transform:uppercase;letter-spacing:0.15em;width:80px;flex-shrink:0;">Step 02</div>
+        <div style="flex:1;">
+          <div style="font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,52px);font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1.0;">See clearly.</div>
+          <div style="font-size:15px;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:300;line-height:1.6;max-width:560px;">Buddy shows you exactly where you are across all 12 marketing pillars. What is working, what is not, and what to focus on first. No more guessing.</div>
+        </div>
+        <div style="font-size:48px;flex-shrink:0;opacity:0.6;">🔍</div>
+      </div>
+      <div class="manifesto-step reveal" style="padding:40px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:32px;">
+        <div style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:rgba(102,198,206,0.5);text-transform:uppercase;letter-spacing:0.15em;width:80px;flex-shrink:0;">Step 03</div>
+        <div style="flex:1;">
+          <div style="font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,52px);font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1.0;">Build what you need.</div>
+          <div style="font-size:15px;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:300;line-height:1.6;max-width:560px;">A real strategy. A Power Offer. A clear plan of action. Not borrowed from someone else's business. Built specifically for yours.</div>
+        </div>
+        <div style="font-size:48px;flex-shrink:0;opacity:0.6;">⚡</div>
+      </div>
+      <div class="manifesto-step reveal" style="padding:40px 0;display:flex;align-items:center;gap:32px;">
+        <div style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:rgba(102,198,206,0.5);text-transform:uppercase;letter-spacing:0.15em;width:80px;flex-shrink:0;">Step 04</div>
+        <div style="flex:1;">
+          <div style="font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,52px);font-weight:800;letter-spacing:-0.02em;line-height:1.0;"><span style="color:#fff;">Grow your business.</span> <span style="color:#66C6CE;">Fast.</span></div>
+          <div style="font-size:15px;color:rgba(255,255,255,0.4);margin-top:10px;font-weight:300;line-height:1.6;max-width:560px;">Buddy keeps working while you sleep. Tracking progress, pushing new ideas, optimising your top line. Every conversation moves you forward.</div>
+        </div>
+        <div style="font-size:48px;flex-shrink:0;opacity:0.6;">🚀</div>
+      </div>
+    </div>
+    <div style="margin-top:56px;text-align:center;">
+      <a href="#talk-to-buddy" class="btn-primary" style="font-size:16px;padding:16px 32px;">Start right now →</a>
+    </div>
+  </div>
+</section>
+
 <section class="preview-section">
   <div class="preview-wrap">
     <div class="section-label">The product</div>
     <h2 class="section-heading">Marketing advice that actually <span class="teal">knows your business</span></h2>
     <p class="section-body">Buddy remembers everything. Your goals, your customers, your competitors. Every conversation builds on the last one.</p>
-    <div class="app-mockup reveal">
+    <div class="carousel-tabs">
+      <button class="carousel-tab active" onclick="showScreen(0)">💬 Chat</button>
+      <button class="carousel-tab" onclick="showScreen(1)">📋 BIG12 Audit</button>
+      <button class="carousel-tab" onclick="showScreen(2)">🎯 My Strategy</button>
+      <button class="carousel-tab" onclick="showScreen(3)">⚡ Power Offer</button>
+    </div>
+    <div class="app-mockup reveal" id="app-mockup">
       <div class="mockup-bar">
         <div class="mockup-dots"><div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div></div>
         <div class="mockup-url">app.onlinemarketingai.co.uk</div>
@@ -232,48 +355,80 @@ footer { padding: 40px; background: #060606; border-top: 1px solid rgba(255,255,
         <div class="mockup-sidebar">
           <div class="mockup-logo-row">
             <div class="mockup-avatar">B</div>
-            <div><div class="mockup-brand">Buddy</div><div class="mockup-brand-sub">Etta Plumbing</div></div>
+            <div><div class="mockup-brand">Buddy</div><div class="mockup-brand-sub">Your Business</div></div>
           </div>
           <div class="mockup-nav-section">Foundations</div>
-          <div class="mockup-nav-item"><div class="mockup-nav-dot"></div>BIG12 Audit</div>
-          <div class="mockup-nav-item"><div class="mockup-nav-dot"></div>Business Brain</div>
-          <div class="mockup-nav-item"><div class="mockup-nav-dot"></div>My Strategy</div>
-          <div class="mockup-nav-item"><div class="mockup-nav-dot"></div>Power Offer</div>
+          <div class="mockup-nav-item" id="nav-audit"><div class="mockup-nav-dot"></div>BIG12 Audit</div>
+          <div class="mockup-nav-item" id="nav-brain"><div class="mockup-nav-dot"></div>Business Brain</div>
+          <div class="mockup-nav-item" id="nav-strategy"><div class="mockup-nav-dot"></div>My Strategy</div>
+          <div class="mockup-nav-item" id="nav-offer"><div class="mockup-nav-dot"></div>Power Offer</div>
           <div class="mockup-nav-section">Execution</div>
-          <div class="mockup-nav-item active"><div class="mockup-nav-dot"></div>Chat</div>
-          <div class="mockup-nav-item"><div class="mockup-nav-dot"></div>To Do</div>
-          <div class="mockup-nav-item"><div class="mockup-nav-dot"></div>Progress</div>
-          <div class="mockup-news">
-            <div class="mockup-news-title">🔔 New from Optimise</div>
-            <div class="mockup-news-text">Google Maps update — affects your rankings</div>
+          <div class="mockup-nav-item active" id="nav-chat"><div class="mockup-nav-dot"></div>Chat</div>
+          <div class="mockup-nav-item" id="nav-todo"><div class="mockup-nav-dot"></div>To Do</div>
+          <div class="mockup-nav-item" id="nav-progress"><div class="mockup-nav-dot"></div>Progress</div>
+          <div class="mockup-news"><div class="mockup-news-title">🔔 New from Optimise</div><div class="mockup-news-text">Google Maps update — affects your rankings</div></div>
+        </div>
+        <div class="mockup-content-panel carousel-screen active" id="screen-0">
+          <div class="mockup-section-header"><div class="mockup-section-title">Google Maps strategy</div><div class="mockup-section-sub">Your Business · Growth Partner · Pillar 7</div></div>
+          <div class="mockup-messages" style="flex:1;padding:14px 18px;display:flex;flex-direction:column;gap:10px;overflow:hidden;">
+            <div class="mockup-msg user"><div class="mockup-msg-av">You</div><div class="mockup-bubble">How do I get more Google reviews?</div></div>
+            <div class="mockup-msg assistant"><div class="mockup-msg-av">B</div><div class="mockup-bubble">Good timing. The simplest fix is a text sent within 24 hours of finishing a job. Most customers are happy to leave one right after a good experience. With <span class="mockup-pillar-tag">Pillar 7</span> it is all about making it easy and timely. Want me to write you a template?</div></div>
+            <div class="mockup-msg user"><div class="mockup-msg-av">You</div><div class="mockup-bubble">Yes please</div></div>
+            <div class="mockup-msg assistant"><div class="mockup-msg-av">B</div><div class="mockup-bubble">"Hi [name], great working with you today. If you have two minutes a Google review would really help us out. Thanks, [your name]." Keep responses personal too — Google reads them as fresh content for your <span class="mockup-pillar-tag">Pillar 1</span> ranking.</div></div>
+          </div>
+          <div class="mockup-input-row"><div class="mockup-input">Ask Buddy anything...</div><div class="mockup-send"><div class="mockup-send-arrow"></div></div></div>
+        </div>
+        <div class="mockup-content-panel carousel-screen" id="screen-1">
+          <div class="mockup-section-header"><div class="mockup-section-title">BIG12 Audit — Your Business</div><div class="mockup-section-sub">Overall score 36/60 · Growing</div></div>
+          <div class="mockup-content-body">
+            <div class="mockup-radar-wrap">
+              <svg class="mockup-radar" viewBox="0 0 140 140">
+                <circle cx="70" cy="70" r="56" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <circle cx="70" cy="70" r="42" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <circle cx="70" cy="70" r="28" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <circle cx="70" cy="70" r="14" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <line x1="70" y1="14" x2="70" y2="126" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <line x1="14" y1="70" x2="126" y2="70" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <line x1="25" y1="25" x2="115" y2="115" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <line x1="115" y1="25" x2="25" y2="115" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <polygon points="70,28 95,42 105,70 95,95 70,105 45,90 38,65 50,40" fill="rgba(102,198,206,0.2)" stroke="#66C6CE" stroke-width="1.5"/>
+                <text x="70" y="8" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.4)">SEO</text>
+                <text x="130" y="72" text-anchor="start" font-size="7" fill="rgba(255,255,255,0.4)">Social</text>
+                <text x="70" y="136" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.4)">Email</text>
+                <text x="5" y="72" text-anchor="start" font-size="7" fill="rgba(255,255,255,0.4)">Brand</text>
+              </svg>
+              <div class="mockup-pillar-list">
+                <div class="mockup-pillar-row"><span class="mockup-pillar-label">Website & SEO</span><div class="mockup-pillar-bar-bg"><div class="mockup-pillar-bar" style="width:60%;background:#66C6CE;"></div></div><span class="mockup-pillar-score">3</span></div>
+                <div class="mockup-pillar-row"><span class="mockup-pillar-label">Reputation & Reviews</span><div class="mockup-pillar-bar-bg"><div class="mockup-pillar-bar" style="width:40%;background:#FE5A6E;"></div></div><span class="mockup-pillar-score">2</span></div>
+                <div class="mockup-pillar-row"><span class="mockup-pillar-label">Lead Generation</span><div class="mockup-pillar-bar-bg"><div class="mockup-pillar-bar" style="width:60%;background:#66C6CE;"></div></div><span class="mockup-pillar-score">3</span></div>
+                <div class="mockup-pillar-row"><span class="mockup-pillar-label">Social Media</span><div class="mockup-pillar-bar-bg"><div class="mockup-pillar-bar" style="width:40%;background:#FE5A6E;"></div></div><span class="mockup-pillar-score">2</span></div>
+                <div class="mockup-pillar-row"><span class="mockup-pillar-label">Analytics & Data</span><div class="mockup-pillar-bar-bg"><div class="mockup-pillar-bar" style="width:60%;background:#66C6CE;"></div></div><span class="mockup-pillar-score">3</span></div>
+                <div class="mockup-pillar-row"><span class="mockup-pillar-label">Brand & Positioning</span><div class="mockup-pillar-bar-bg"><div class="mockup-pillar-bar" style="width:80%;background:#F4BD3B;"></div></div><span class="mockup-pillar-score">4</span></div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="mockup-chat">
-          <div class="mockup-chat-header">
-            <div class="mockup-chat-title">Google Maps strategy</div>
-            <div class="mockup-chat-sub">Etta Plumbing · Growth Partner · Pillar 7</div>
-          </div>
-          <div class="mockup-messages">
-            <div class="mockup-msg user">
-              <div class="mockup-msg-av">You</div>
-              <div class="mockup-bubble">How do I get more Google reviews coming in?</div>
-            </div>
-            <div class="mockup-msg assistant">
-              <div class="mockup-msg-av">B</div>
-              <div class="mockup-bubble">Good timing on this one. You have 14 reviews right now which is solid but not enough for the volume of jobs you are doing. With <span class="mockup-pillar-tag">Pillar 7</span> the simplest fix is a text message sent within 24 hours of completing a job. Most customers are happy to leave a review right after a good experience. Want me to write you a message template you can copy and send?</div>
-            </div>
-            <div class="mockup-msg user">
-              <div class="mockup-msg-av">You</div>
-              <div class="mockup-bubble">Yes please, and what should I say when responding to them?</div>
-            </div>
-            <div class="mockup-msg assistant">
-              <div class="mockup-msg-av">B</div>
-              <div class="mockup-bubble">Here is a text you can send after every job: "Hi [name], great to get your boiler sorted today. If you have two minutes, a Google review would really help us out. Thanks, [your name]." For responses, keep them personal and mention the work done. Google reads review responses as fresh content so it helps your <span class="mockup-pillar-tag">Pillar 1</span> ranking too.</div>
+        <div class="mockup-content-panel carousel-screen" id="screen-2">
+          <div class="mockup-section-header"><div class="mockup-section-title">Your Marketing Strategy</div><div class="mockup-section-sub">Agreed with Buddy · 3 June 2026</div></div>
+          <div class="mockup-content-body">
+            <div class="mockup-strategy-cards">
+              <div class="mockup-strategy-card"><div class="mockup-strategy-label">Positioning</div><div class="mockup-strategy-text">The go-to specialist in your area. Known for quality, trust and results that generic providers cannot match.</div></div>
+              <div class="mockup-strategy-card"><div class="mockup-strategy-label">Target market</div><div class="mockup-strategy-text">Local customers who value expertise over cheapest price and are ready to buy from someone they trust.</div></div>
+              <div class="mockup-strategy-card"><div class="mockup-strategy-label">90-day focus</div><div class="mockup-strategy-text">Build review system, sharpen website messaging, create dedicated landing pages. Goal: double qualified enquiries within 90 days.</div></div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;">
+                <span style="background:rgba(102,198,206,0.15);color:#66C6CE;font-size:10px;padding:3px 8px;border-radius:10px;">Pillar 1 — SEO</span>
+                <span style="background:rgba(102,198,206,0.15);color:#66C6CE;font-size:10px;padding:3px 8px;border-radius:10px;">Pillar 7 — Reviews</span>
+                <span style="background:rgba(102,198,206,0.15);color:#66C6CE;font-size:10px;padding:3px 8px;border-radius:10px;">Pillar 5 — Leads</span>
+              </div>
             </div>
           </div>
-          <div class="mockup-input-row">
-            <div class="mockup-input">Ask Buddy anything about your marketing...</div>
-            <div class="mockup-send"><div class="mockup-send-arrow"></div></div>
+        </div>
+        <div class="mockup-content-panel carousel-screen" id="screen-3">
+          <div class="mockup-section-header"><div class="mockup-section-title">Your Power Offer</div><div class="mockup-section-sub">4 offers built by Buddy · 3 June 2026</div></div>
+          <div class="mockup-content-body">
+            <div class="mockup-offer-card"><div class="mockup-offer-label">The Premium Offer — Website & Google Ads</div><div class="mockup-offer-text">Get [your result] with a full guarantee. Specific, tangible, built around what your best customers actually want.</div></div>
+            <div class="mockup-offer-card"><div class="mockup-offer-label">The Entry Offer — Social media & referrals</div><div class="mockup-offer-text">A lower-commitment starting point that builds the relationship and converts into your core offer over time.</div></div>
+            <div class="mockup-oneliner"><div class="mockup-oneliner-label">Your one-liner</div><div class="mockup-oneliner-text">We help [your ideal customer] get [their dream outcome] in [timeframe], or we make it right. No risk, no jargon, just results.</div></div>
           </div>
         </div>
       </div>
@@ -286,25 +441,42 @@ footer { padding: 40px; background: #060606; border-top: 1px solid rgba(255,255,
     <div class="section-label">How it works</div>
     <h2 class="section-heading">From audit to <span class="teal">execution</span> in three steps</h2>
     <div class="how-grid reveal">
-      <div class="how-card">
-        <div class="how-num">01</div>
-        <div class="how-card-title">Take your BIG12 Audit</div>
-        <div class="how-card-body">A 10-minute snapshot across all 12 marketing areas. You see exactly where you are strong, where the gaps are, and what to tackle first. Buddy uses it as your baseline.</div>
+      <div class="how-card"><div class="how-num">01</div><div class="how-card-title">Take your BIG12 Audit</div><div class="how-card-body">A 10-minute snapshot across all 12 marketing areas. You see exactly where you are strong, where the gaps are, and what to tackle first. Buddy uses it as your baseline.</div></div>
+      <div class="how-card"><div class="how-num">02</div><div class="how-card-title">Build your Business Brain</div><div class="how-card-body">Through conversation, Buddy learns your positioning, your ideal customers, your goals and your competitors. Every chat adds to it. He never asks you the same thing twice.</div></div>
+      <div class="how-card"><div class="how-num">03</div><div class="how-card-title">Agree your strategy</div><div class="how-card-body">When Buddy knows enough, he helps you agree a clear north star. Your positioning, who you are for, and your Power Offer — the thing that makes saying yes feel like a no-brainer.</div></div>
+    </div>
+    <div class="progress-chart-wrap reveal" style="margin-top:40px;">
+      <div style="text-align:center;margin-bottom:24px;">
+        <p style="font-size:13px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;">What growth looks like</p>
+        <p style="font-size:15px;color:rgba(255,255,255,0.5);margin-top:6px;font-weight:300;">Businesses using Buddy consistently see momentum build across their BIG12 pillars over time.</p>
       </div>
-      <div class="how-card">
-        <div class="how-num">02</div>
-        <div class="how-card-title">Build your Business Brain</div>
-        <div class="how-card-body">Through conversation, Buddy learns your positioning, your ideal customers, your goals and your competitors. Every chat adds to it. He never asks you the same thing twice.</div>
-      </div>
-      <div class="how-card">
-        <div class="how-num">03</div>
-        <div class="how-card-title">Agree your strategy</div>
-        <div class="how-card-body">When Buddy knows enough, he helps you agree a clear north star. Your positioning, who you are for, and your Power Offer — the thing that makes saying yes feel like a no-brainer.</div>
+      <div style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:28px 24px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+          <div style="display:flex;gap:20px;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,0.5);"><div style="width:24px;height:3px;background:#66C6CE;border-radius:2px;"></div>BIG12 Coverage</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,0.5);"><div style="width:24px;height:3px;background:#FE5A6E;border-radius:2px;"></div>Enquiries</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,0.5);"><div style="width:24px;height:3px;background:#F4BD3B;border-radius:2px;"></div>Actions completed</div>
+          </div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.25);">First 6 months with Buddy</div>
+        </div>
+        <canvas id="progressChart" height="180" style="width:100%;display:block;"></canvas>
+        <div style="display:flex;justify-content:space-between;margin-top:8px;padding:0 4px;">
+          <span style="font-size:11px;color:rgba(255,255,255,0.2);">Month 1</span>
+          <span style="font-size:11px;color:rgba(255,255,255,0.2);">Month 2</span>
+          <span style="font-size:11px;color:rgba(255,255,255,0.2);">Month 3</span>
+          <span style="font-size:11px;color:rgba(255,255,255,0.2);">Month 4</span>
+          <span style="font-size:11px;color:rgba(255,255,255,0.2);">Month 5</span>
+          <span style="font-size:11px;color:rgba(255,255,255,0.2);">Month 6</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">
+          <div style="text-align:center;"><div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:#66C6CE;" id="stat-pillars">0</div><div style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:2px;">BIG12 pillars covered</div></div>
+          <div style="text-align:center;"><div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:#FE5A6E;" id="stat-enquiries">0</div><div style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:2px;">Monthly enquiries</div></div>
+          <div style="text-align:center;"><div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:#F4BD3B;" id="stat-actions">0</div><div style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:2px;">Actions completed</div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
 <section class="features-section" id="features">
   <div class="features-inner">
     <div class="features-header">
@@ -334,21 +506,30 @@ footer { padding: 40px; background: #060606; border-top: 1px solid rgba(255,255,
     <h2 class="section-heading" style="margin:0 auto;text-align:center;">12 pillars. <span class="teal">Complete marketing coverage.</span></h2>
     <p class="big12-subtext">Buddy knows all 12 areas deeply. He knows which ones to focus on first for your specific business.</p>
     <div class="big12-scroll reveal">
-      <div class="big12-pill"><span class="big12-num">01</span> Website & SEO</div>
-      <div class="big12-pill"><span class="big12-num">02</span> Social Media</div>
-      <div class="big12-pill"><span class="big12-num">03</span> Content Marketing</div>
-      <div class="big12-pill"><span class="big12-num">04</span> Email Marketing</div>
-      <div class="big12-pill"><span class="big12-num">05</span> Lead Generation</div>
-      <div class="big12-pill"><span class="big12-num">06</span> Paid Advertising</div>
-      <div class="big12-pill"><span class="big12-num">07</span> Reputation & Reviews</div>
-      <div class="big12-pill"><span class="big12-num">08</span> Video Marketing</div>
-      <div class="big12-pill"><span class="big12-num">09</span> PR & Partnerships</div>
-      <div class="big12-pill"><span class="big12-num">10</span> Analytics & Data</div>
-      <div class="big12-pill"><span class="big12-num">11</span> AI & Automation</div>
-      <div class="big12-pill"><span class="big12-num">12</span> Brand & Positioning</div>
+      <div class="big12-pill" style="animation-delay:0s"><span class="big12-icon">🌐</span><span class="big12-num">01</span><span class="big12-label">Website & SEO</span></div>
+      <div class="big12-pill" style="animation-delay:0.05s"><span class="big12-icon">📱</span><span class="big12-num">02</span><span class="big12-label">Social Media</span></div>
+      <div class="big12-pill" style="animation-delay:0.1s"><span class="big12-icon">✍️</span><span class="big12-num">03</span><span class="big12-label">Content Marketing</span></div>
+      <div class="big12-pill" style="animation-delay:0.15s"><span class="big12-icon">📧</span><span class="big12-num">04</span><span class="big12-label">Email Marketing</span></div>
+      <div class="big12-pill" style="animation-delay:0.2s"><span class="big12-icon">🎯</span><span class="big12-num">05</span><span class="big12-label">Lead Generation</span></div>
+      <div class="big12-pill" style="animation-delay:0.25s"><span class="big12-icon">📣</span><span class="big12-num">06</span><span class="big12-label">Paid Advertising</span></div>
+      <div class="big12-pill" style="animation-delay:0.3s"><span class="big12-icon">⭐</span><span class="big12-num">07</span><span class="big12-label">Reputation & Reviews</span></div>
+      <div class="big12-pill" style="animation-delay:0.35s"><span class="big12-icon">🎬</span><span class="big12-num">08</span><span class="big12-label">Video Marketing</span></div>
+      <div class="big12-pill" style="animation-delay:0.4s"><span class="big12-icon">🤝</span><span class="big12-num">09</span><span class="big12-label">PR & Partnerships</span></div>
+      <div class="big12-pill" style="animation-delay:0.45s"><span class="big12-icon">📊</span><span class="big12-num">10</span><span class="big12-label">Analytics & Data</span></div>
+      <div class="big12-pill" style="animation-delay:0.5s"><span class="big12-icon">🤖</span><span class="big12-num">11</span><span class="big12-label">AI & Automation</span></div>
+      <div class="big12-pill" style="animation-delay:0.55s"><span class="big12-icon">💡</span><span class="big12-num">12</span><span class="big12-label">Brand & Positioning</span></div>
+    </div>
+    <div style="margin-top:48px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.06);">
+      <p style="font-size:12px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.1em;text-align:center;margin-bottom:20px;font-weight:600;">Buddy helps you</p>
+      <div style="display:flex;align-items:center;justify-content:center;gap:16px;min-height:52px;">
+        <div style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;animation:pulse-dot 2s ease infinite;"></div>
+        <div id="outcome-ticker" style="font-family:'Syne',sans-serif;font-size:clamp(20px,3vw,32px);font-weight:700;color:var(--white);text-align:center;transition:opacity 0.4s ease,transform 0.4s ease;"></div>
+        <div style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;animation:pulse-dot 2s ease infinite;animation-delay:1s;"></div>
+      </div>
     </div>
   </div>
 </section>
+
 <section class="pricing-section" id="pricing">
   <div class="pricing-inner">
     <div class="section-label" style="justify-content:center;">Pricing</div>
@@ -405,6 +586,43 @@ footer { padding: 40px; background: #060606; border-top: 1px solid rgba(255,255,
   </div>
 </section>
 
+<!-- CONFIDANT SECTION -->
+<section style="padding:100px 40px;background:#0D0D0D;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 40% 60% at 20% 50%, rgba(102,198,206,0.07) 0%, transparent 60%);"></div>
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1;">
+    <div>
+      <div class="section-label">More than a tool</div>
+      <h2 style="font-family:'Syne',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;color:#fff;margin-bottom:20px;">You don't have to figure out your <span style="color:#66C6CE;">marketing alone</span></h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.55);line-height:1.7;font-weight:300;margin-bottom:16px;">Most small business owners are copying what they see others doing. They borrow tactics from competitors, follow trends that do not fit their business, and make big decisions without anyone to sense-check them.</p>
+      <p style="font-size:17px;color:rgba(255,255,255,0.55);line-height:1.7;font-weight:300;margin-bottom:16px;">Buddy gives you something different. A space to think honestly about your business — what you actually want to build, who you want to serve, what success really looks like for you. Then he helps you get there.</p>
+      <p style="font-size:17px;color:rgba(255,255,255,0.55);line-height:1.7;font-weight:300;">Not a plan that sits in a drawer. A living strategy that works to optimise your top line every single day. Built around your vision, not someone else's playbook.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:24px;border-left:3px solid #66C6CE;">
+        <div style="font-size:13px;font-weight:600;color:#66C6CE;font-family:'Syne',sans-serif;margin-bottom:8px;">Always available</div>
+        <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;font-weight:300;">Sunday evening, 10pm, you have a pricing question. Buddy is there. No waiting for a callback, no agency day rates, no judgement.</p>
+      </div>
+      <div style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:24px;border-left:3px solid #FE5A6E;">
+        <div style="font-size:13px;font-weight:600;color:#FE5A6E;font-family:'Syne',sans-serif;margin-bottom:8px;">Remembers everything</div>
+        <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;font-weight:300;">Buddy builds up a picture of your business over time. He never asks you to repeat yourself. Every conversation starts where the last one left off.</p>
+      </div>
+      <div style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:24px;border-left:3px solid #F4BD3B;">
+        <div style="font-size:13px;font-weight:600;color:#F4BD3B;font-family:'Syne',sans-serif;margin-bottom:8px;">Honest with you</div>
+        <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;font-weight:300;">If your idea is not a good one, Buddy will say so. Not to be harsh, but because a yes-man is useless. He will always explain why and help you find a better route.</p>
+      </div>
+      <div style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:24px;border-left:3px solid rgba(102,198,206,0.4);">
+        <div style="font-size:13px;font-weight:600;color:rgba(102,198,206,0.8);font-family:'Syne',sans-serif;margin-bottom:8px;">Only has your interests</div>
+        <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;font-weight:300;">No upsells, no hidden agenda, no recommending things because they are profitable for someone else. Buddy exists to help your business grow. That is it.</p>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1100px;margin:60px auto 0;padding-top:60px;border-top:1px solid rgba(255,255,255,0.06);display:grid;grid-template-columns:repeat(3,1fr);gap:32px;position:relative;z-index:1;">
+    <div style="text-align:center;"><div style="font-family:'Syne',sans-serif;font-size:42px;font-weight:800;color:#66C6CE;letter-spacing:-0.02em;">18</div><div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px;">years of marketing expertise behind every answer</div></div>
+    <div style="text-align:center;"><div style="font-family:'Syne',sans-serif;font-size:42px;font-weight:800;color:#66C6CE;letter-spacing:-0.02em;">12</div><div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px;">pillars of marketing knowledge Buddy draws from</div></div>
+    <div style="text-align:center;"><div style="font-family:'Syne',sans-serif;font-size:42px;font-weight:800;color:#66C6CE;letter-spacing:-0.02em;">24/7</div><div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px;">available whenever you need to think something through</div></div>
+  </div>
+</section>
+
 <section class="proof-section">
   <div class="proof-inner">
     <div class="section-label">What clients say</div>
@@ -412,26 +630,34 @@ footer { padding: 40px; background: #060606; border-top: 1px solid rgba(255,255,
     <div class="testimonials reveal">
       <div class="testimonial">
         <p class="testimonial-text">"Buddy told me things about my own business I had not been able to articulate myself. The Power Offer alone was worth the setup fee."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-av">EP</div>
-          <div><div class="testimonial-name">Etta Plumbing</div><div class="testimonial-biz">Trades & Home Services, Derbyshire</div></div>
-        </div>
+        <div class="testimonial-author"><div class="testimonial-av">EP</div><div><div class="testimonial-name">Etta Plumbing</div><div class="testimonial-biz">Trades & Home Services, Derbyshire</div></div></div>
       </div>
       <div class="testimonial">
         <p class="testimonial-text">"We have tried a few AI tools and none of them remembered what we had discussed before. Buddy builds on every conversation. It is a different product entirely."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-av">CF</div>
-          <div><div class="testimonial-name">Croots Farm Shop</div><div class="testimonial-biz">Farm & Hospitality, Derbyshire</div></div>
-        </div>
+        <div class="testimonial-author"><div class="testimonial-av">CF</div><div><div class="testimonial-name">Croots Farm Shop</div><div class="testimonial-biz">Farm & Hospitality, Derbyshire</div></div></div>
       </div>
       <div class="testimonial">
         <p class="testimonial-text">"The BIG12 Audit was the honest conversation about our marketing we had never had. The radar chart made it impossible to ignore the gaps."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-av">AG</div>
-          <div><div class="testimonial-name">All Good Group</div><div class="testimonial-biz">Hospitality, Multi-site</div></div>
-        </div>
+        <div class="testimonial-author"><div class="testimonial-av">AG</div><div><div class="testimonial-name">All Good Group</div><div class="testimonial-biz">Hospitality, Multi-site</div></div></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS STRIP -->
+<section style="padding:60px 40px;background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    <p style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.25);margin-bottom:32px;">Connects with your existing tools</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:10px;opacity:0.45;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.45'"><svg width="28" height="28" viewBox="0 0 28 28"><rect width="4" height="14" x="4" y="14" rx="1" fill="#F9AB00"/><rect width="4" height="20" x="12" y="8" rx="1" fill="#E37400"/><rect width="4" height="28" x="20" y="0" rx="1" fill="#E37400"/></svg><span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);font-family:'Syne',sans-serif;">Google Analytics</span></div>
+      <div style="display:flex;align-items:center;gap:10px;opacity:0.45;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.45'"><svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10" fill="none" stroke="#4285F4" stroke-width="2.5"/><circle cx="14" cy="14" r="4" fill="#4285F4"/><line x1="14" y1="4" x2="14" y2="8" stroke="#4285F4" stroke-width="2.5"/><line x1="14" y1="20" x2="14" y2="24" stroke="#4285F4" stroke-width="2.5"/><line x1="4" y1="14" x2="8" y2="14" stroke="#4285F4" stroke-width="2.5"/><line x1="20" y1="14" x2="24" y2="14" stroke="#4285F4" stroke-width="2.5"/></svg><span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);font-family:'Syne',sans-serif;">Search Console</span></div>
+      <div style="display:flex;align-items:center;gap:10px;opacity:0.45;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.45'"><svg width="28" height="28" viewBox="0 0 28 28"><circle cx="20" cy="8" r="3.5" fill="#FF7A59"/><circle cx="8" cy="14" r="3.5" fill="#FF7A59"/><circle cx="20" cy="20" r="3.5" fill="#FF7A59"/><line x1="11.5" y1="12.5" x2="17" y2="9.5" stroke="#FF7A59" stroke-width="2"/><line x1="11.5" y1="15.5" x2="17" y2="18.5" stroke="#FF7A59" stroke-width="2"/></svg><span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);font-family:'Syne',sans-serif;">HubSpot</span></div>
+      <div style="display:flex;align-items:center;gap:10px;opacity:0.45;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.45'"><svg width="28" height="28" viewBox="0 0 28 28"><ellipse cx="14" cy="15" rx="9" ry="7" fill="none" stroke="#FFE01B" stroke-width="2"/><circle cx="10" cy="14" r="1.5" fill="#FFE01B"/><circle cx="18" cy="14" r="1.5" fill="#FFE01B"/><path d="M10 17.5 Q14 20 18 17.5" fill="none" stroke="#FFE01B" stroke-width="1.5" stroke-linecap="round"/><path d="M14 8 Q17 5 20 7" fill="none" stroke="#FFE01B" stroke-width="2" stroke-linecap="round"/></svg><span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);font-family:'Syne',sans-serif;">Mailchimp</span></div>
+      <div style="display:flex;align-items:center;gap:10px;opacity:0.45;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.45'"><svg width="28" height="28" viewBox="0 0 28 28"><path d="M4 16 Q4 10 8 10 Q11 10 14 15 Q17 10 20 10 Q24 10 24 16 Q24 22 20 22 Q17 22 14 17 Q11 22 8 22 Q4 22 4 16Z" fill="none" stroke="#0866FF" stroke-width="2.5"/></svg><span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);font-family:'Syne',sans-serif;">Meta Ads</span></div>
+      <div style="display:flex;align-items:center;gap:10px;opacity:0.45;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.45'"><svg width="28" height="28" viewBox="0 0 28 28"><path d="M19 6 Q18 4 16 4 Q15 4 14 5 Q12 4 10 5 L8 22 L22 19 Z" fill="none" stroke="#96BF48" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="22" r="1.5" fill="#96BF48"/><circle cx="19" cy="20" r="1.5" fill="#96BF48"/></svg><span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);font-family:'Syne',sans-serif;">Shopify</span></div>
+      <div style="display:flex;align-items:center;gap:10px;opacity:0.45;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.45'"><svg width="28" height="28" viewBox="0 0 28 28"><rect x="5" y="5" width="18" height="18" rx="4" fill="none" stroke="#00C875" stroke-width="2.5"/><path d="M10 14 L13 17 L18 11" stroke="#00C875" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);font-family:'Syne',sans-serif;">Klaviyo</span></div>
+    </div>
+    <p style="font-size:12px;color:rgba(255,255,255,0.2);margin-top:28px;">More integrations coming. <a href="#talk-to-buddy" style="color:rgba(102,198,206,0.5);text-decoration:none;">Ask Buddy what's on the roadmap →</a></p>
   </div>
 </section>
 
@@ -440,15 +666,46 @@ footer { padding: 40px; background: #060606; border-top: 1px solid rgba(255,255,
   <div class="oym-strip-heading">Optimise Your Marketing</div>
   <div class="oym-strip-sub">18 years of marketing expertise, baked into every conversation.</div>
 </div>
+<!-- TALK TO BUDDY -->
+<section id="talk-to-buddy" style="padding:100px 40px;background:#080808;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 50%, rgba(102,198,206,0.06) 0%, transparent 70%);"></div>
+  <div style="max-width:720px;margin:0 auto;position:relative;z-index:1;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div class="section-label" style="justify-content:center;">Try it now</div>
+      <h2 style="font-family:'Syne',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;color:#fff;margin-bottom:16px;">Talk to <span style="color:#66C6CE;">Buddy</span> right now</h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.5);font-weight:300;line-height:1.6;">Ask him anything about your marketing. He is ready to help — no login, no commitment.</p>
+    </div>
+    <div style="background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.5);">
+      <div style="padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:12px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#66C6CE;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:16px;color:#0E0E0E;flex-shrink:0;">B</div>
+        <div><div style="font-size:14px;font-weight:600;color:#fff;font-family:'Syne',sans-serif;">Buddy</div><div style="font-size:12px;color:rgba(255,255,255,0.35);">BIG12 Marketing Advisor</div></div>
+        <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+          <div style="width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse-dot 2s ease infinite;"></div>
+          <span style="font-size:12px;color:rgba(255,255,255,0.35);">Online</span>
+        </div>
+      </div>
+      <div id="demo-messages" style="height:340px;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;"></div>
+      <div id="demo-chips" style="padding:0 20px 12px;display:flex;gap:8px;flex-wrap:wrap;"></div>
+      <div style="padding:12px 16px;border-top:1px solid rgba(255,255,255,0.06);display:flex;gap:10px;align-items:flex-end;">
+        <textarea id="demo-input" rows="1" placeholder="Ask Buddy anything about your marketing..." style="flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:10px 16px;font-size:14px;color:#fff;font-family:'DM Sans',sans-serif;resize:none;outline:none;line-height:1.4;max-height:100px;overflow-y:auto;" onkeydown="demoChatKey(event)" oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,100)+'px'"></textarea>
+        <button onclick="demoSend()" style="width:38px;height:38px;border-radius:50%;background:#66C6CE;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s;" onmouseover="this.style.background='#3FA8B2'" onmouseout="this.style.background='#66C6CE'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22L11 13M11 13L2 9" stroke="#0E0E0E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:13px;color:rgba(255,255,255,0.2);margin-top:16px;">Want Buddy set up for your business? <a href="https://www.optimiseyourmarketing.co.uk/meet-with-stuart" target="_blank" style="color:#66C6CE;text-decoration:none;">Book a free demo →</a></p>
+  </div>
+</section>
 
+<!-- CTA -->
 <section class="cta-section">
   <div class="cta-bg"></div>
   <div class="cta-inner">
-    <h2 class="cta-heading">Ready to meet <span class="teal">Buddy?</span></h2>
-    <p class="cta-sub">Book a free 20-minute demo and we will show you exactly what Buddy can do for your business. Or start with the free BIG12 Audit if you are not quite ready to talk.</p>
+    <h2 class="cta-heading">Ready to build the business <span class="teal">you actually want?</span></h2>
+    <p class="cta-sub">Book a free 20-minute demo and we will show you exactly what Buddy can do for your business. Or talk to Buddy right now — no login, no commitment.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;">
       <a href="https://www.optimiseyourmarketing.co.uk/meet-with-stuart" target="_blank" class="btn-primary" style="font-size:16px;padding:16px 32px;">Book a free demo →</a>
-      <a href="https://www.optimiseyourmarketing.co.uk/online-marketing-audit" target="_blank" class="btn-secondary" style="font-size:16px;padding:16px 32px;">Take the free BIG12 Audit</a>
+      <a href="#talk-to-buddy" class="btn-secondary" style="font-size:16px;padding:16px 32px;">Talk to Buddy now</a>
     </div>
     <p style="font-size:13px;color:rgba(255,255,255,0.25);">No commitment. No credit card. Just a conversation.</p>
   </div>
@@ -457,24 +714,200 @@ footer { padding: 40px; background: #060606; border-top: 1px solid rgba(255,255,
 <footer>
   <div class="footer-left">
     <div class="footer-logo-mark">B</div>
-    <div class="footer-text">
-      Buddy by <a href="https://optimiseyourmarketing.co.uk" target="_blank">Optimise Your Marketing</a> &nbsp;·&nbsp; <a href="https://app.onlinemarketingai.co.uk">Client login</a>
-    </div>
+    <div class="footer-text">Buddy by <a href="https://optimiseyourmarketing.co.uk" target="_blank">Optimise Your Marketing</a> &nbsp;·&nbsp; <a href="https://app.onlinemarketingai.co.uk">Client login</a></div>
   </div>
   <div class="footer-right">© 2026 Optimise Your Marketing Ltd. All rights reserved.</div>
 </footer>
 
 <script>
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      observer.unobserve(entry.target);
+const DEMO_SYSTEM = `You are Buddy, a BIG12 Marketing Advisor built by Optimise Your Marketing (optimiseyourmarketing.co.uk). You are talking to a prospect on the Buddy marketing website at onlinemarketingai.co.uk. They have not signed up yet and you do not know their business.
+
+Your job is to show them how good you are by being genuinely helpful RIGHT NOW. Ask smart questions, give real advice, reference the BIG12 framework naturally.
+
+THE BIG12 FRAMEWORK covers 12 pillars: 1. Website & SEO, 2. Social Media, 3. Content Marketing, 4. Email Marketing, 5. Lead Generation, 6. Paid Advertising, 7. Reputation & Reviews, 8. Video Marketing, 9. PR & Partnerships, 10. Analytics & Data, 11. AI & Automation, 12. Brand & Positioning.
+
+ABOUT BUDDY: Buddy is an AI marketing advisor that learns your business through conversation. Unlike generic AI tools, Buddy remembers everything, builds a Business Brain with your goals and positioning, helps you agree a clear marketing strategy, generates your Power Offer, runs a BIG12 Audit, builds a To Do list, tracks progress, and connects to platforms like Google Analytics. Built on 18 years of marketing expertise from Optimise Your Marketing.
+
+PRICING: Growth Partner £99/mo + £499 setup. Managed Growth £149/mo + £699 setup. White Glove £249/mo + £999 setup.
+
+HOW BUDDY DIFFERS FROM CHATGPT: Generic AI starts from scratch every conversation. Buddy builds a Business Brain that grows with every chat. He is trained on the BIG12 framework and connects to real data via integrations.
+
+TO GET STARTED: Book at optimiseyourmarketing.co.uk/meet-with-stuart
+
+YOUR TONE: Warm, direct, genuinely curious. Like a knowledgeable friend. Never salesy. Never robotic.
+
+FORMATTING RULES: Do not use em dashes. Do not use asterisks. Do not use bullet points unless asked. No markdown. Short plain sentences. Two to three sentences per paragraph maximum.
+
+After learning about their business, naturally mention once that a full Buddy setup would give them a personalised advisor who remembers everything.`;
+
+let demoChatHistory = [];
+let demoThinking = false;
+
+const demoChips = ["How do I get more leads?","What should I focus on first?","How do I stand out from competitors?","Is my marketing working?"];
+
+function demoBubble(role, text, isThinking) {
+  const wrap = document.createElement('div');
+  wrap.style.cssText = `display:flex;gap:8px;max-width:88%;${role==='user'?'align-self:flex-end;flex-direction:row-reverse;':''}`;
+  const av = document.createElement('div');
+  av.style.cssText = `width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;margin-top:2px;font-family:'Syne',sans-serif;${role==='assistant'?'background:#66C6CE;color:#0E0E0E;':'background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);'}`;
+  av.textContent = role==='assistant' ? 'B' : 'You';
+  const bubble = document.createElement('div');
+  bubble.style.cssText = `padding:10px 14px;border-radius:12px;font-size:14px;line-height:1.55;font-family:'DM Sans',sans-serif;${role==='assistant'?'background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.9);border-bottom-left-radius:3px;':'background:#66C6CE;color:#0E0E0E;font-weight:500;border-bottom-right-radius:3px;'}`;
+  if(isThinking) {
+    bubble.innerHTML = '<div style="display:flex;gap:4px;align-items:center;padding:2px 0;"><div style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);animation:pulse-dot 1.2s ease infinite;"></div><div style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);animation:pulse-dot 1.2s ease infinite;animation-delay:0.2s;"></div><div style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);animation:pulse-dot 1.2s ease infinite;animation-delay:0.4s;"></div></div>';
+    wrap.id = 'demo-thinking';
+  } else { bubble.textContent = text; }
+  wrap.appendChild(av); wrap.appendChild(bubble);
+  return wrap;
+}
+
+function demoScroll() { const el = document.getElementById('demo-messages'); if(el) el.scrollTop = el.scrollHeight; }
+
+function demoRenderChips(show) {
+  const el = document.getElementById('demo-chips');
+  if(!el) return;
+  el.innerHTML = '';
+  if(!show) return;
+  demoChips.forEach(c => {
+    const btn = document.createElement('button');
+    btn.textContent = c;
+    btn.style.cssText = 'font-size:12px;padding:6px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.12);background:transparent;color:rgba(255,255,255,0.55);cursor:pointer;font-family:"DM Sans",sans-serif;transition:all 0.15s;';
+    btn.onmouseover = () => { btn.style.borderColor='#66C6CE'; btn.style.color='#66C6CE'; };
+    btn.onmouseout = () => { btn.style.borderColor='rgba(255,255,255,0.12)'; btn.style.color='rgba(255,255,255,0.55)'; };
+    btn.onclick = () => { document.getElementById('demo-input').value = c; demoSend(); };
+    el.appendChild(btn);
+  });
+}
+
+async function demoSend(prefill) {
+  if(demoThinking) return;
+  const input = document.getElementById('demo-input');
+  const text = prefill || input.value.trim();
+  if(!text) return;
+  input.value = ''; input.style.height = 'auto';
+  demoRenderChips(false);
+  const msgs = document.getElementById('demo-messages');
+  msgs.appendChild(demoBubble('user', text));
+  demoScroll();
+  demoChatHistory.push({role:'user', content:text});
+  demoThinking = true;
+  const thinkEl = demoBubble('assistant', '', true);
+  msgs.appendChild(thinkEl); demoScroll();
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':'YOUR_API_KEY_HERE','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body: JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:DEMO_SYSTEM,messages:demoChatHistory})
+    });
+    const data = await res.json();
+    const reply = data.content?.[0]?.text || 'Something went wrong — please try again.';
+    document.getElementById('demo-thinking')?.remove();
+    msgs.appendChild(demoBubble('assistant', reply));
+    demoChatHistory.push({role:'assistant', content:reply});
+    demoScroll();
+  } catch(e) {
+    document.getElementById('demo-thinking')?.remove();
+    msgs.appendChild(demoBubble('assistant', 'Connection issue — please try again in a moment.'));
+    demoScroll();
+  }
+  demoThinking = false;
+}
+
+function demoChatKey(e) { if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();demoSend();} }
+
+(function() {
+  const opening = "Most business owners I talk to are doing their best with borrowed tactics and a lot of guesswork. I am here for something more honest than that. Tell me about your business — not what you think you should be doing, but what you actually want to build.";
+  const msgs = document.getElementById('demo-messages');
+  if(msgs) { msgs.appendChild(demoBubble('assistant', opening)); demoChatHistory.push({role:'assistant', content:opening}); demoRenderChips(true); }
+})();
+
+function drawChart(progress) {
+  const canvas = document.getElementById('progressChart');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * dpr; canvas.height = 180 * dpr;
+  ctx.scale(dpr, dpr);
+  const W = rect.width, H = 180;
+  const pad = {top:10,right:20,bottom:10,left:10};
+  const w = W-pad.left-pad.right, h = H-pad.top-pad.bottom;
+  const months = 6;
+  const pillars=[1,2,4,6,9,12], enquiries=[3,5,7,10,14,19], actions=[2,6,11,18,26,34];
+  const maxVals=[12,20,35], datasets=[pillars,enquiries,actions], colors=['#66C6CE','#FE5A6E','#F4BD3B'];
+  ctx.clearRect(0,0,W,H);
+  for(let i=0;i<=4;i++){const y=pad.top+(h/4)*i;ctx.beginPath();ctx.moveTo(pad.left,y);ctx.lineTo(pad.left+w,y);ctx.strokeStyle='rgba(255,255,255,0.05)';ctx.lineWidth=1;ctx.stroke();}
+  const totalPoints=(months-1)*10, animPoints=Math.floor(progress*totalPoints);
+  datasets.forEach((data,di)=>{
+    const maxVal=maxVals[di];
+    ctx.beginPath();ctx.strokeStyle=colors[di];ctx.lineWidth=2;ctx.lineJoin='round';ctx.lineCap='round';
+    let started=false;
+    for(let p=0;p<=animPoints;p++){
+      const segIdx=Math.floor(p/10),segProg=(p%10)/10;
+      if(segIdx>=months-1)break;
+      const v1=data[segIdx],v2=data[segIdx+1],val=v1+(v2-v1)*segProg;
+      const x=pad.left+(p/totalPoints)*w,y=pad.top+h-(val/maxVal)*h;
+      if(!started){ctx.moveTo(x,y);started=true;}else{ctx.lineTo(x,y);}
+    }
+    ctx.stroke();
+    if(animPoints>0){
+      const endSeg=Math.min(Math.floor(animPoints/10),months-2),endProg=Math.min((animPoints%10)/10,1);
+      const v1=data[endSeg],v2=data[Math.min(endSeg+1,months-1)],val=v1+(v2-v1)*endProg;
+      const x=pad.left+(animPoints/totalPoints)*w,y=pad.top+h-(val/maxVal)*h;
+      ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fillStyle=colors[di];ctx.fill();
     }
   });
-}, { threshold: 0.1 });
-reveals.forEach(el => observer.observe(el));
+  const finalSeg=Math.min(Math.floor(animPoints/10),months-2),finalProg=Math.min((animPoints%10)/10,1);
+  const pVal=Math.round(pillars[finalSeg]+(pillars[Math.min(finalSeg+1,months-1)]-pillars[finalSeg])*finalProg);
+  const eVal=Math.round(enquiries[finalSeg]+(enquiries[Math.min(finalSeg+1,months-1)]-enquiries[finalSeg])*finalProg);
+  const aVal=Math.round(actions[finalSeg]+(actions[Math.min(finalSeg+1,months-1)]-actions[finalSeg])*finalProg);
+  const sp=document.getElementById('stat-pillars'),se=document.getElementById('stat-enquiries'),sa=document.getElementById('stat-actions');
+  if(sp)sp.textContent=pVal; if(se)se.textContent=eVal; if(sa)sa.textContent=aVal;
+}
+
+let chartProgress=0,chartAnimating=false,chartTimer;
+function startChartAnimation(){
+  if(chartAnimating)return; chartAnimating=true; chartProgress=0; clearInterval(chartTimer);
+  chartTimer=setInterval(()=>{
+    chartProgress=Math.min(chartProgress+0.008,1); drawChart(chartProgress);
+    if(chartProgress>=1){clearInterval(chartTimer);chartAnimating=false;setTimeout(()=>{chartProgress=0;chartAnimating=false;startChartAnimation();},2000);}
+  },16);
+}
+const chartObserver=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting)startChartAnimation();else{clearInterval(chartTimer);chartAnimating=false;}});},{threshold:0.3});
+const chartEl=document.getElementById('progressChart');
+if(chartEl){chartObserver.observe(chartEl);}
+window.addEventListener('resize',()=>drawChart(chartProgress));
+
+const outcomes=["Understand your business deeply","Define your ideal customer","Build your USP","Position yourself correctly","Create an irresistible offer","Target the right people","Get more Google reviews","Turn your website into a lead machine","Know what your competitors are doing","Agree a clear marketing strategy","Stop wasting time on the wrong channels","Build content that actually gets found","Track what is working and what is not","Grow your email list","Dominate local search","Get more enquiries every month","Build a brand people remember","Turn one-off customers into repeat buyers","Automate the marketing tasks that drain your time","Know exactly what to do next"];
+let outcomeIdx=0;
+const ticker=document.getElementById('outcome-ticker');
+function showNextOutcome(){
+  if(!ticker)return;
+  ticker.style.opacity='0'; ticker.style.transform='translateY(10px)';
+  setTimeout(()=>{outcomeIdx=(outcomeIdx+1)%outcomes.length;ticker.textContent=outcomes[outcomeIdx];ticker.style.opacity='1';ticker.style.transform='translateY(0)';},400);
+}
+if(ticker){ticker.textContent=outcomes[0];ticker.style.opacity='1';ticker.style.transform='translateY(0)';setInterval(showNextOutcome,2500);}
+
+const screens=4;
+const navIds=['nav-chat','nav-audit','nav-strategy','nav-offer'];
+let currentScreen=0,autoTimer;
+function showScreen(i){
+  document.querySelectorAll('.carousel-screen').forEach((s,idx)=>s.classList.toggle('active',idx===i));
+  document.querySelectorAll('.carousel-tab').forEach((t,idx)=>t.classList.toggle('active',idx===i));
+  document.querySelectorAll('.mockup-nav-item').forEach(n=>n.classList.remove('active'));
+  const activeNav=['nav-chat','nav-audit','nav-strategy','nav-offer'][i];
+  const el=document.getElementById(activeNav);
+  if(el)el.classList.add('active');
+  currentScreen=i; clearInterval(autoTimer); autoTimer=setInterval(autoAdvance,4000);
+}
+function autoAdvance(){showScreen((currentScreen+1)%screens);}
+autoTimer=setInterval(autoAdvance,4000);
+
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);observer.unobserve(entry.target);}});
+},{threshold:0.1});
+reveals.forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>
