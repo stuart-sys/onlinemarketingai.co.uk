@@ -689,6 +689,7 @@ async function demoSend(){
   demoScroll();
   try{
     const res=await fetch('https://green-sound-e647.stuart-950.workers.dev',{
+      mode:'cors',
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,system:DEMO_SYSTEM,messages:demoChatHistory})
