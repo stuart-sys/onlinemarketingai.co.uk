@@ -796,14 +796,14 @@ async function demoSend(prefill) {
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':'YOUR_API_KEY_HERE','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      headers:{'Content-Type':'application/json','x-api-key':'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'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
       body: JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:DEMO_SYSTEM,messages:demoChatHistory})
     });
     const data = await res.json();
     const reply = data.content?.[0]?.text || 'Something went wrong — please try again.';
     document.getElementById('demo-thinking')?.remove();
     msgs.appendChild(demoBubble('assistant', reply));
-    demoChatHistory.push({role:'assistant', content:reply});
+    demoChatHistory.push({role:'assist   ant', content:reply});
     demoScroll();
   } catch(e) {
     document.getElementById('demo-thinking')?.remove();
@@ -909,5 +909,7 @@ const observer=new IntersectionObserver((entries)=>{
 },{threshold:0.1});
 reveals.forEach(el=>observer.observe(el));
 </script>
+</body>
+</html>
 </body>
 </html>
