@@ -694,9 +694,9 @@ function auditScroll(){const el=document.getElementById('audit-messages');if(el)
 
 async function saveAuditLead(){
   try{
-    await fetch('https://api.flodesk.com/v1/subscribers',{
+    await fetch('https://green-sound-e647.stuart-950.workers.dev',{
       method:'POST',
-      headers:{'Content-Type':'application/json','Authorization':'Basic '+btoa('fd_key_56255263dbe7448f87504bbe40b9c502.L3nsxDWBFQRSLqzTa3HzRwyXwg6MXwJoHVGPN0RgNAiVnZeDE4SOpNxBlDkhfOKEM6JfM8gf08uQg6VMIXFJdXBoyKEPyO1usLr3BzJqfD0DhDY6BXUQ440CWDx4YIljgyseHH2uO4VVUgnPpVXHd49Sz804AjYCSrfXX0D1PoDi7Kecfh0GM9MjJQU6zdRq:')},
+      headers:{'Content-Type':'application/json','X-Service':'flodesk'},
       body:JSON.stringify({email:auditEmail,first_name:auditName.split(' ')[0],last_name:auditName.split(' ').slice(1).join(' ')||'',custom_fields:{website:auditAnswers[0]||'',business_type:auditAnswers[1]||'',frustration:auditAnswers[2]||'',current_marketing:auditAnswers[3]||'',goals:auditAnswers[4]||''},segments:[{name:'Buddy Audit Requests'}]})
     });
   }catch(e){console.log('Flodesk error:',e);}
@@ -830,9 +830,9 @@ function demoRenderChips(show){
 
 async function captureLeadToFlodesk(name,email,businessSummary){
   try{
-    await fetch('https://api.flodesk.com/v1/subscribers',{
+    await fetch('https://green-sound-e647.stuart-950.workers.dev',{
       method:'POST',
-      headers:{'Content-Type':'application/json','Authorization':'Basic '+btoa('fd_key_56255263dbe7448f87504bbe40b9c502.L3nsxDWBFQRSLqzTa3HzRwyXwg6MXwJoHVGPN0RgNAiVnZeDE4SOpNxBlDkhfOKEM6JfM8gf08uQg6VMIXFJdXBoyKEPyO1usLr3BzJqfD0DhDY6BXUQ440CWDx4YIljgyseHH2uO4VVUgnPpVXHd49Sz804AjYCSrfXX0D1PoDi7Kecfh0GM9MjJQU6zdRq:')},
+      headers:{'Content-Type':'application/json','X-Service':'flodesk'},
       body:JSON.stringify({email:email,first_name:name.split(' ')[0],last_name:name.split(' ').slice(1).join(' ')||'',custom_fields:{business_summary:businessSummary},segments:[{name:'Buddy Website Leads'}]})
     });
   }catch(e){console.log('Flodesk error:',e);}
