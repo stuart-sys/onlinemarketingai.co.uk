@@ -697,7 +697,7 @@ async function demoSend(){
         'anthropic-version':'2023-06-01',
         'anthropic-dangerous-direct-browser-access':'true'
       },
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,system:DEMO_SYSTEM,messages:demoChatHistory})
+      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:800,system:DEMO_SYSTEM,messages:demoChatHistory})
     });
     const data=await res.json();
     const reply=data.content?.[0]?.text||'Something went wrong — please try again.';
