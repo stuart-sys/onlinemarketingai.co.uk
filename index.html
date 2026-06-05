@@ -207,6 +207,7 @@ footer{padding:40px;background:#060606;border-top:1px solid rgba(255,255,255,0.0
     <li><a href="#how">How it works</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#free-audit" style="color:#FE5A6E;font-weight:500;">Free Audit</a></li>
     <li><a href="#talk-to-buddy" style="color:#66C6CE;font-weight:500;">Talk to Buddy</a></li>
     <li><a href="https://www.optimiseyourmarketing.co.uk/meet-with-stuart" target="_blank" class="nav-cta">Book a demo →</a></li>
   </ul>
@@ -575,6 +576,43 @@ footer{padding:40px;background:#060606;border-top:1px solid rgba(255,255,255,0.0
   <div class="oym-strip-heading">Optimise Your Marketing</div>
   <div class="oym-strip-sub">18 years of marketing expertise, baked into every conversation.</div>
 </div>
+
+<!-- FREE AUDIT SECTION -->
+<section id="free-audit" style="padding:100px 40px;background:#0D0D0D;position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,0.06);">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 80% 50%,rgba(254,90,110,0.06) 0%,transparent 60%);"></div>
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1;">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(254,90,110,0.12);border:1px solid rgba(254,90,110,0.3);border-radius:20px;padding:6px 14px;font-size:13px;color:#FE5A6E;font-weight:500;margin-bottom:24px;">Free — no commitment</div>
+      <h2 style="font-family:'Syne',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:800;line-height:1.1;letter-spacing:-0.02em;color:#fff;margin-bottom:20px;">Get your free <span style="color:#FE5A6E;">Online Marketing Audit</span></h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.55);line-height:1.7;font-weight:300;margin-bottom:16px;">Tell Buddy about your business and he will gather everything needed for a full audit across all 12 BIG12 pillars. I will run it and send you a detailed report showing exactly where you stand and what to focus on first.</p>
+      <p style="font-size:17px;color:rgba(255,255,255,0.55);line-height:1.7;font-weight:300;margin-bottom:32px;">No catch. No sales pitch. Just an honest picture of your marketing.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:center;gap:12px;"><div style="width:28px;height:28px;border-radius:50%;background:rgba(254,90,110,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;color:#FE5A6E;font-weight:700;">1</div><span style="font-size:14px;color:rgba(255,255,255,0.6);">Answer 5 quick questions with Buddy</span></div>
+        <div style="display:flex;align-items:center;gap:12px;"><div style="width:28px;height:28px;border-radius:50%;background:rgba(254,90,110,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;color:#FE5A6E;font-weight:700;">2</div><span style="font-size:14px;color:rgba(255,255,255,0.6);">Leave your name and email</span></div>
+        <div style="display:flex;align-items:center;gap:12px;"><div style="width:28px;height:28px;border-radius:50%;background:rgba(254,90,110,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;color:#FE5A6E;font-weight:700;">3</div><span style="font-size:14px;color:rgba(255,255,255,0.6);">Receive your personalised BIG12 Audit report</span></div>
+      </div>
+    </div>
+    <div>
+      <div style="background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.5);">
+        <div style="padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#FE5A6E;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:16px;color:#fff;flex-shrink:0;">B</div>
+          <div><div style="font-size:14px;font-weight:600;color:#fff;font-family:'Syne',sans-serif;">Buddy</div><div style="font-size:12px;color:rgba(255,255,255,0.35);">Free Marketing Audit</div></div>
+          <div style="margin-left:auto;display:flex;align-items:center;gap:6px;"><div style="width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse-dot 2s ease infinite;"></div><span style="font-size:12px;color:rgba(255,255,255,0.35);">Online</span></div>
+        </div>
+        <div id="audit-messages" style="height:300px;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;"></div>
+        <div id="audit-chips" style="padding:0 20px 12px;display:flex;gap:8px;flex-wrap:wrap;"></div>
+        <div style="padding:12px 16px;border-top:1px solid rgba(255,255,255,0.06);display:flex;gap:10px;align-items:flex-end;">
+          <textarea id="audit-input" rows="1" placeholder="Tell Buddy about your business..." style="flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:10px 16px;font-size:14px;color:#fff;font-family:'DM Sans',sans-serif;resize:none;outline:none;line-height:1.4;max-height:100px;" onkeydown="auditChatKey(event)" oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,100)+'px'"></textarea>
+          <button onclick="auditSend()" style="width:38px;height:38px;border-radius:50%;background:#FE5A6E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;" onmouseover="this.style.background='#e04560'" onmouseout="this.style.background='#FE5A6E'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22L11 13M11 13L2 9" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TALK TO BUDDY -->
 <section id="talk-to-buddy" style="padding:100px 40px;background:#080808;position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 50%,rgba(102,198,206,0.06) 0%,transparent 70%);"></div>
   <div style="max-width:720px;margin:0 auto;position:relative;z-index:1;">
@@ -622,23 +660,136 @@ footer{padding:40px;background:#060606;border-top:1px solid rgba(255,255,255,0.0
   </div>
   <div class="footer-right">© 2026 Optimise Your Marketing Ltd. All rights reserved.</div>
 </footer>
-
 <script>
+// FREE AUDIT CHAT
+const AUDIT_QUESTIONS = [
+  "What is your website URL? If you do not have one yet just say so.",
+  "What does your business do and who are your ideal customers?",
+  "What is your biggest marketing frustration right now?",
+  "Are you currently doing anything for marketing — social media, ads, email, anything at all?",
+  "What would success look like for you in the next 6 months?"
+];
 
-const DEMO_SYSTEM = `You are Buddy, a BIG12 Marketing Advisor built by Optimise Your Marketing. You are on the Buddy marketing website talking to a prospect who has not signed up yet.
+let auditStep = 0;
+let auditAnswers = {};
+let auditName = '';
+let auditEmail = '';
+let auditCaptureStep = 0;
 
-Your job is to be genuinely helpful RIGHT NOW. Ask smart questions, give real advice, reference the BIG12 naturally.
+function auditBubble(role, text) {
+  const wrap = document.createElement('div');
+  wrap.style.cssText = `display:flex;gap:8px;max-width:88%;${role==='user'?'align-self:flex-end;flex-direction:row-reverse;':''}`;
+  const av = document.createElement('div');
+  av.style.cssText = `width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;margin-top:2px;font-family:'Syne',sans-serif;${role==='assistant'?'background:#FE5A6E;color:#fff;':'background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);'}`;
+  av.textContent = role==='assistant'?'B':'You';
+  const bubble = document.createElement('div');
+  bubble.style.cssText = `padding:10px 14px;border-radius:12px;font-size:14px;line-height:1.55;font-family:'DM Sans',sans-serif;${role==='assistant'?'background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.9);border-bottom-left-radius:3px;':'background:#FE5A6E;color:#fff;font-weight:500;border-bottom-right-radius:3px;'}`;
+  const formatted = text.replace(/\[Q\](.*?)\[\/Q\]/gs,'<span style="display:block;margin-top:8px;padding:8px 12px;background:rgba(254,90,110,0.15);border-left:3px solid #FE5A6E;border-radius:4px;color:#FE5A6E;font-weight:500;">$1</span>').replace(/\n/g,'<br>');
+  bubble.innerHTML = formatted;
+  wrap.appendChild(av);wrap.appendChild(bubble);
+  return wrap;
+}
 
-The BIG12 covers 12 pillars: 1. Website & SEO, 2. Social Media, 3. Content Marketing, 4. Email Marketing, 5. Lead Generation, 6. Paid Advertising, 7. Reputation & Reviews, 8. Video Marketing, 9. PR & Partnerships, 10. Analytics & Data, 11. AI & Automation, 12. Brand & Positioning.
+function auditScroll(){const el=document.getElementById('audit-messages');if(el)el.scrollTop=el.scrollHeight;}
 
-Pricing: Growth Partner 99 pounds per month plus 499 setup. Managed Growth 149 pounds plus 699 setup. White Glove 249 pounds plus 999 setup. To get started: optimiseyourmarketing.co.uk/meet-with-stuart
+async function saveAuditLead(){
+  try{
+    await fetch('https://api.flodesk.com/v1/subscribers',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':'Basic '+btoa('fd_key_56255263dbe7448f87504bbe40b9c502.L3nsxDWBFQRSLqzTa3HzRwyXwg6MXwJoHVGPN0RgNAiVnZeDE4SOpNxBlDkhfOKEM6JfM8gf08uQg6VMIXFJdXBoyKEPyO1usLr3BzJqfD0DhDY6BXUQ440CWDx4YIljgyseHH2uO4VVUgnPpVXHd49Sz804AjYCSrfXX0D1PoDi7Kecfh0GM9MjJQU6zdRq:')},
+      body:JSON.stringify({email:auditEmail,first_name:auditName.split(' ')[0],last_name:auditName.split(' ').slice(1).join(' ')||'',custom_fields:{website:auditAnswers[0]||'',business_type:auditAnswers[1]||'',frustration:auditAnswers[2]||'',current_marketing:auditAnswers[3]||'',goals:auditAnswers[4]||''},segments:[{name:'Buddy Audit Requests'}]})
+    });
+  }catch(e){console.log('Flodesk error:',e);}
+}
 
-Tone: Warm, direct, curious. Like a knowledgeable friend. Never salesy.
+function auditSend(){
+  const input=document.getElementById('audit-input');
+  const text=input.value.trim();
+  if(!text)return;
+  input.value='';input.style.height='auto';
+  const msgs=document.getElementById('audit-messages');
+  msgs.appendChild(auditBubble('user',text));
+  auditScroll();
 
-Formatting: No em dashes. No asterisks. No bullet points. No markdown. Short plain sentences. Two to three sentences per paragraph maximum.`;
+  if(auditCaptureStep===1){
+    auditName=text;auditCaptureStep=2;
+    setTimeout(()=>{msgs.appendChild(auditBubble('assistant','Lovely to meet you '+auditName.split(' ')[0]+'. [Q]And what is your email address so I can send the audit over?[/Q]'));auditScroll();},500);
+    return;
+  }
+
+  if(auditCaptureStep===2){
+    auditEmail=text;auditCaptureStep=3;
+    setTimeout(()=>{
+      msgs.appendChild(auditBubble('assistant','Perfect — you are all set '+auditName.split(' ')[0]+'. I will run your full BIG12 Audit and get it across to you shortly. Keep an eye on your inbox. In the meantime if you want to chat through anything else, Stuart would love to hear from you at optimiseyourmarketing.co.uk/meet-with-stuart'));
+      auditScroll();
+      const inputEl=document.getElementById('audit-input');
+      if(inputEl){inputEl.placeholder='Audit requested — check your inbox soon';inputEl.disabled=true;}
+      const btn=document.createElement('a');
+      btn.href='https://www.optimiseyourmarketing.co.uk/meet-with-stuart';
+      btn.target='_blank';
+      btn.textContent='Book a free call with Stuart →';
+      btn.style.cssText='display:block;margin:12px 20px;padding:12px 20px;background:#FE5A6E;color:#fff;text-align:center;border-radius:8px;font-family:"Syne",sans-serif;font-weight:700;font-size:14px;text-decoration:none;';
+      msgs.appendChild(btn);
+      auditScroll();
+      saveAuditLead();
+    },600);
+    return;
+  }
+
+  if(auditStep<=4)auditAnswers[auditStep-1]=text;
+
+  setTimeout(()=>{
+    if(auditStep<AUDIT_QUESTIONS.length){
+      const prefixes=['','Great. ','Got it. ','That is really helpful. ','Almost there. '];
+      msgs.appendChild(auditBubble('assistant',prefixes[auditStep]+'[Q]'+AUDIT_QUESTIONS[auditStep]+'[/Q]'));
+      auditStep++;
+    } else {
+      auditCaptureStep=1;
+      msgs.appendChild(auditBubble('assistant','That is everything I need — thank you. I will make sure the report is really specific for your business. [Q]What is your name?[/Q]'));
+    }
+    auditScroll();
+  },600);
+}
+
+function auditChatKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();auditSend();}}
+
+(function(){
+  const msgs=document.getElementById('audit-messages');
+  if(msgs){
+    msgs.appendChild(auditBubble('assistant','I would love to run a free BIG12 Marketing Audit for your business. It takes about 2 minutes — I just need to ask you a few quick questions first. [Q]'+AUDIT_QUESTIONS[0]+'[/Q]'));
+    auditStep=1;auditScroll();
+  }
+})();
+
+// DEMO BUDDY CHAT
+const DEMO_SYSTEM = `You are Buddy, a BIG12 Marketing Advisor built by Optimise Your Marketing (optimiseyourmarketing.co.uk). You are talking to a prospect on the Buddy marketing website at onlinemarketingai.co.uk. They have not signed up yet and you do not know their business.
+
+Your job is to show them how good you are by being genuinely helpful RIGHT NOW. Ask smart questions, give real advice, reference the BIG12 framework naturally.
+
+THE BIG12 FRAMEWORK covers 12 pillars: 1. Website & SEO, 2. Social Media, 3. Content Marketing, 4. Email Marketing, 5. Lead Generation, 6. Paid Advertising, 7. Reputation & Reviews, 8. Video Marketing, 9. PR & Partnerships, 10. Analytics & Data, 11. AI & Automation, 12. Brand & Positioning.
+
+ABOUT BUDDY: Buddy is an AI marketing advisor that learns your business through conversation. Unlike generic AI tools, Buddy remembers everything, builds a Business Brain with your goals and positioning, helps you agree a clear marketing strategy, generates your Power Offer, runs a BIG12 Audit, builds a To Do list, tracks progress, and connects to platforms like Google Analytics. Built on 18 years of marketing expertise from Optimise Your Marketing.
+
+PRICING: Growth Partner 99 pounds per month plus 499 setup. Managed Growth 149 pounds plus 699 setup. White Glove 249 pounds plus 999 setup. To get started: optimiseyourmarketing.co.uk/meet-with-stuart
+
+HOW BUDDY DIFFERS FROM CHATGPT: Generic AI starts from scratch every conversation. Buddy builds a Business Brain that grows with every chat. He is trained on the BIG12 framework and connects to real data via integrations.
+
+YOUR TONE: Warm, direct, genuinely curious. Like a knowledgeable friend. Never salesy. Never robotic.
+
+FORMATTING RULES: Do not use em dashes. Do not use asterisks. Do not use bullet points unless asked. No markdown. Short plain sentences. Two to three sentences per paragraph maximum.
+
+QUESTION FORMATTING: Whenever you ask a question, wrap it in [Q] and [/Q] tags like this: [Q]What does your business do?[/Q]. Every question must use these tags.
+
+After learning about their business, naturally mention once that a full Buddy setup would give them a personalised advisor who remembers everything.`;
 
 let demoChatHistory = [];
 let demoThinking = false;
+let leadCaptureMode = false;
+let leadCaptureStep = 0;
+let leadName = '';
+let leadEmail = '';
+let messageCount = 0;
+
 const demoChips = ['How do I get more leads?','What should I focus on first?','How do I stand out from competitors?','Is my marketing working?'];
 
 function demoBubble(role, text, isThinking) {
@@ -649,8 +800,13 @@ function demoBubble(role, text, isThinking) {
   av.textContent = role==='assistant'?'B':'You';
   const bubble = document.createElement('div');
   bubble.style.cssText = `padding:10px 14px;border-radius:12px;font-size:14px;line-height:1.55;font-family:'DM Sans',sans-serif;${role==='assistant'?'background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.9);border-bottom-left-radius:3px;':'background:#66C6CE;color:#0E0E0E;font-weight:500;border-bottom-right-radius:3px;'}`;
-  if(isThinking){bubble.innerHTML='<div style="display:flex;gap:4px;align-items:center;"><div style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);animation:pulse-dot 1.2s ease infinite;"></div><div style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);animation:pulse-dot 1.2s ease infinite;animation-delay:0.2s;"></div><div style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);animation:pulse-dot 1.2s ease infinite;animation-delay:0.4s;"></div></div>';wrap.id='demo-thinking';}
-  else{bubble.textContent=text;}
+  if(isThinking){
+    bubble.innerHTML='<div style="display:flex;gap:4px;align-items:center;padding:2px 0;"><div style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);animation:pulse-dot 1.2s ease infinite;"></div><div style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);animation:pulse-dot 1.2s ease infinite;animation-delay:0.2s;"></div><div style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);animation:pulse-dot 1.2s ease infinite;animation-delay:0.4s;"></div></div>';
+    wrap.id='demo-thinking';
+  } else {
+    const formatted = text.replace(/\[Q\](.*?)\[\/Q\]/gs,'<span style="display:block;margin-top:8px;padding:8px 12px;background:rgba(102,198,206,0.15);border-left:3px solid #66C6CE;border-radius:4px;color:#66C6CE;font-weight:500;">$1</span>').replace(/\n/g,'<br>');
+    bubble.innerHTML = formatted;
+  }
   wrap.appendChild(av);wrap.appendChild(bubble);
   return wrap;
 }
@@ -659,8 +815,7 @@ function demoScroll(){const el=document.getElementById('demo-messages');if(el)el
 
 function demoRenderChips(show){
   const el=document.getElementById('demo-chips');
-  if(!el)return;
-  el.innerHTML='';
+  if(!el)return;el.innerHTML='';
   if(!show)return;
   demoChips.forEach(c=>{
     const btn=document.createElement('button');
@@ -673,6 +828,16 @@ function demoRenderChips(show){
   });
 }
 
+async function captureLeadToFlodesk(name,email,businessSummary){
+  try{
+    await fetch('https://api.flodesk.com/v1/subscribers',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':'Basic '+btoa('fd_key_56255263dbe7448f87504bbe40b9c502.L3nsxDWBFQRSLqzTa3HzRwyXwg6MXwJoHVGPN0RgNAiVnZeDE4SOpNxBlDkhfOKEM6JfM8gf08uQg6VMIXFJdXBoyKEPyO1usLr3BzJqfD0DhDY6BXUQ440CWDx4YIljgyseHH2uO4VVUgnPpVXHd49Sz804AjYCSrfXX0D1PoDi7Kecfh0GM9MjJQU6zdRq:')},
+      body:JSON.stringify({email:email,first_name:name.split(' ')[0],last_name:name.split(' ').slice(1).join(' ')||'',custom_fields:{business_summary:businessSummary},segments:[{name:'Buddy Website Leads'}]})
+    });
+  }catch(e){console.log('Flodesk error:',e);}
+}
+
 async function demoSend(){
   if(demoThinking)return;
   const input=document.getElementById('demo-input');
@@ -683,20 +848,46 @@ async function demoSend(){
   const msgs=document.getElementById('demo-messages');
   msgs.appendChild(demoBubble('user',text));
   demoScroll();
+  messageCount++;
+
+  if(leadCaptureStep===1){
+    leadName=text;leadCaptureStep=2;
+    demoChatHistory.push({role:'user',content:text});
+    setTimeout(()=>{msgs.appendChild(demoBubble('assistant','Lovely to meet you '+leadName.split(' ')[0]+'. [Q]What is your email address and I will get those ideas across to you?[/Q]'));demoScroll();},600);
+    return;
+  }
+
+  if(leadCaptureStep===2){
+    leadEmail=text;leadCaptureStep=3;
+    demoChatHistory.push({role:'user',content:text});
+    const convoText=demoChatHistory.map(m=>m.role+': '+m.content).join('\n').substring(0,1000);
+    setTimeout(()=>{
+      msgs.appendChild(demoBubble('assistant','Perfect — I will get those over to you shortly '+leadName.split(' ')[0]+'. In the meantime if you want to see what a full Buddy setup looks like for your business, Stuart would love to show you. You can book a free 20-minute call at optimiseyourmarketing.co.uk/meet-with-stuart — no pressure at all, just a conversation.'));
+      demoScroll();
+      const inputEl=document.getElementById('demo-input');
+      if(inputEl){inputEl.placeholder='Chat session complete — book a demo to continue';inputEl.disabled=true;}
+      const btn=document.createElement('a');
+      btn.href='https://www.optimiseyourmarketing.co.uk/meet-with-stuart';
+      btn.target='_blank';
+      btn.textContent='Book a free demo with Stuart →';
+      btn.style.cssText='display:block;margin:12px 20px;padding:12px 20px;background:#66C6CE;color:#0E0E0E;text-align:center;border-radius:8px;font-family:"Syne",sans-serif;font-weight:700;font-size:14px;text-decoration:none;';
+      msgs.appendChild(btn);
+      demoScroll();
+      captureLeadToFlodesk(leadName,leadEmail,convoText);
+    },600);
+    return;
+  }
+
   demoChatHistory.push({role:'user',content:text});
   demoThinking=true;
   msgs.appendChild(demoBubble('assistant','',true));
   demoScroll();
+
   try{
-    const BUDDY_API_KEY = atob('c2stYW50LWFwaTAzLV84X1hnUVkzb3JoVk0tb1pSbTRLMWRMUjc5OFBpMDNYY0g2Y085RlYzUTV3Z0twU3ZCSHk2eXludzJ3WDV6MHlkRGNSLXZ2cjZMZGVjdXlLSmRLVTFnLVUtTVF5UUFB');
+    const BUDDY_API_KEY=atob('c2stYW50LWFwaTAzLV84X1hnUVkzb3JoVk0tb1pSbTRLMWRMUjc5OFBpMDNYY0g2Y085RlYzUTV3Z0twU3ZCSHk2eXludzJ3WDV6MHlkRGNSLXZ2cjZMZGVjdXlLSmRLVTFnLVUtTVF5UUFB');
     const res=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'x-api-key':BUDDY_API_KEY,
-        'anthropic-version':'2023-06-01',
-        'anthropic-dangerous-direct-browser-access':'true'
-      },
+      headers:{'Content-Type':'application/json','x-api-key':BUDDY_API_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
       body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:800,system:DEMO_SYSTEM,messages:demoChatHistory})
     });
     const data=await res.json();
@@ -705,6 +896,14 @@ async function demoSend(){
     msgs.appendChild(demoBubble('assistant',reply));
     demoChatHistory.push({role:'assistant',content:reply});
     demoScroll();
+
+    if(messageCount>=6&&leadCaptureStep===0){
+      leadCaptureStep=1;
+      setTimeout(()=>{
+        msgs.appendChild(demoBubble('assistant','Right, my mind is racing here — I have got loads of ideas for you specifically. Can I ping a few of them over? [Q]What is your name?[/Q]'));
+        demoScroll();
+      },1500);
+    }
   }catch(e){
     document.getElementById('demo-thinking')?.remove();
     msgs.appendChild(demoBubble('assistant','Connection issue — please try again in a moment.'));
@@ -720,8 +919,7 @@ function demoChatKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();demo
   const msgs=document.getElementById('demo-messages');
   if(msgs){msgs.appendChild(demoBubble('assistant',opening));demoChatHistory.push({role:'assistant',content:opening});demoRenderChips(true);}
 })();
-
-function drawChart(progress){
+  function drawChart(progress){
   const canvas=document.getElementById('progressChart');
   if(!canvas)return;
   const ctx=canvas.getContext('2d');
