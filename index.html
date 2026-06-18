@@ -2144,8 +2144,9 @@ async function saveAuditLead() {
   try {
     
     // Save to Flodesk
-    await fetch('https://api.flodesk.com/v1/subscribers', {
+    await fetch('https://green-sound-e647.stuart-950.workers.dev', {
       method:'POST',
+      headers: {'Content-Type': 'application/json', 'X-Service': 'flodesk', 'X-Segment': 'Buddy Audit Requests'},
       
       body:JSON.stringify({
         email: auditEmail,
@@ -2335,10 +2336,10 @@ async function captureLeadToFlodesk(name, email, businessSummary) {
   try {
     const firstName = name.split(' ')[0];
     const lastName = name.split(' ').slice(1).join(' ') || '';
-    await fetch('https://api.flodesk.com/v1/subscribers', {
+    await fetch('https://green-sound-e647.stuart-950.workers.dev', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+       'Content-Type': 'application/json', 'X-Service': 'flodesk', 'X-Segment': 'Buddy Website Leads',
        
       },
       body: JSON.stringify({
