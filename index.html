@@ -2142,11 +2142,11 @@ function auditScroll() { const el=document.getElementById('audit-messages'); if(
 
 async function saveAuditLead() {
   try {
-    const BUDDY_API_KEY = atob('c2stYW50LWFwaTAzLV84X1hnUVkzb3JoVk0tb1pSbTRLMWRMUjc5OFBpMDNYY0g2Y085RlYzUTV3Z0twU3ZCSHk2eXludzJ3WDV6MHlkRGNSLXZ2cjZMZGVjdXlLSmRLVTFnLVUtTVF5UUFB');
+    
     // Save to Flodesk
     await fetch('https://api.flodesk.com/v1/subscribers', {
       method:'POST',
-      headers:{'Content-Type':'application/json','Authorization':'Basic '+btoa('fd_key_56255263dbe7448f87504bbe40b9c502.L3nsxDWBFQRSLqzTa3HzRwyXwg6MXwJoHVGPN0RgNAiVnZeDE4SOpNxBlDkhfOKEM6JfM8gf08uQg6VMIXFJdXBoyKEPyO1usLr3BzJqfD0DhDY6BXUQ440CWDx4YIljgyseHH2uO4VVUgnPpVXHd49Sz804AjYCSrfXX0D1PoDi7Kecfh0GM9MjJQU6zdRq:')},
+      
       body:JSON.stringify({
         email: auditEmail,
         first_name: auditName.split(' ')[0],
@@ -2339,7 +2339,7 @@ async function captureLeadToFlodesk(name, email, businessSummary) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + btoa('fd_key_56255263dbe7448f87504bbe40b9c502.L3nsxDWBFQRSLqzTa3HzRwyXwg6MXwJoHVGPN0RgNAiVnZeDE4SOpNxBlDkhfOKEM6JfM8gf08uQg6VMIXFJdXBoyKEPyO1usLr3BzJqfD0DhDY6BXUQ440CWDx4YIljgyseHH2uO4VVUgnPpVXHd49Sz804AjYCSrfXX0D1PoDi7Kecfh0GM9MjJQU6zdRq:')
+       
       },
       body: JSON.stringify({
         email: email,
@@ -2420,14 +2420,12 @@ async function demoSend(prefill) {
   demoScroll();
 
   try {
-    const BUDDY_API_KEY = atob('c2stYW50LWFwaTAzLV84X1hnUVkzb3JoVk0tb1pSbTRLMWRMUjc5OFBpMDNYY0g2Y085RlYzUTV3Z0twU3ZCSHk2eXludzJ3WDV6MHlkRGNSLXZ2cjZMZGVjdXlLSmRLVTFnLVUtTVF5UUFB');
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    
+    await fetch('https://green-sound-e647.stuart-950.workers.dev', {
       method:'POST',
       headers:{
         'Content-Type':'application/json',
-        'x-api-key': BUDDY_API_KEY,
-        'anthropic-version':'2023-06-01',
-        'anthropic-dangerous-direct-browser-access':'true'
+  
       },
       body: JSON.stringify({
         model:'claude-sonnet-4-6',
