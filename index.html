@@ -2162,6 +2162,11 @@ async function saveAuditLead() {
         segments:[{name:'Buddy Audit Requests'}]
       })
     });
+    await fetch('https://green-sound-e647.stuart-950.workers.dev', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'X-Service': 'base44', 'X-Entity': 'AuditLead'},
+      body: JSON.stringify({first_name: auditName.split(' ')[0], last_name: auditName.split(' ').slice(1).join(' ')||'', email: auditEmail, website: auditAnswers[0]||'', business_type: auditAnswers[1]||'', frustration: auditAnswers[2]||'', current_marketing: auditAnswers[3]||'', goals: auditAnswers[4]||'', captured_at: new Date().toISOString()})
+    });
   } catch(e) { console.log('Flodesk error:',e); }
 }
 
@@ -2349,6 +2354,11 @@ async function captureLeadToFlodesk(name, email, businessSummary) {
         custom_fields: { business_summary: businessSummary },
         segments: [{ name: 'Buddy Website Leads' }]
       })
+    });
+    await fetch('https://green-sound-e647.stuart-950.workers.dev', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'X-Service': 'base44', 'X-Entity': 'WebsiteLead'},
+      body: JSON.stringify({first_name: firstName, last_name: lastName, email: email, business_summary: businessSummary, captured_at: new Date().toISOString()})
     });
   } catch(e) {
     console.log('Flodesk error:', e);
