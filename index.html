@@ -2422,7 +2422,7 @@ async function demoSend(prefill) {
 
   try {
     
-    await fetch('https://green-sound-e647.stuart-950.workers.dev', {
+  const res = await fetch('https://green-sound-e647.stuart-950.workers.dev', {
       method:'POST',
       headers:{
         'Content-Type':'application/json',
